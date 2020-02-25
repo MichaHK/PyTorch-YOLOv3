@@ -103,6 +103,7 @@ if __name__ == "__main__":
         fig, ax = plt.subplots(1)
         ax.imshow(img)
 
+
         # Draw bounding boxes and labels of detections
         if detections is not None:
             # Rescale boxes to original image
@@ -137,5 +138,6 @@ if __name__ == "__main__":
         plt.gca().xaxis.set_major_locator(NullLocator())
         plt.gca().yaxis.set_major_locator(NullLocator())
         filename = path.split("/")[-1].split(".")[0]
-        plt.savefig(f"output/{filename}.png", bbox_inches="tight", pad_inches=0.0)
+        plt.savefig(f"output/{filename}.png", bbox_inches="tight", pad_inches=0.0) # simply create folder output/samples for this to work.
+        fig.show()
         plt.close()

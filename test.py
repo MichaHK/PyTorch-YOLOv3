@@ -4,7 +4,7 @@ from models import *
 from utils.utils import *
 from utils.datasets import *
 from utils.parse_config import *
-
+import pandas as pd
 import os
 import sys
 import time
@@ -97,7 +97,7 @@ if __name__ == "__main__":
         img_size=opt.img_size,
         batch_size=8,
     )
-
+    ResultsDF = pd.DataFrame(data = [precision, recall, AP, f1, ap_class], columns= ['Precision', 'Recall', 'AP', 'f1', 'Class_num'])
     print("Average Precisions:")
     for i, c in enumerate(ap_class):
         print(f"+ Class '{c}' ({class_names[c]}) - AP: {AP[i]}")

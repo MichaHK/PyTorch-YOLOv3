@@ -2,16 +2,16 @@
 
 # CREDIT: https://github.com/pjreddie/darknet/tree/master/scripts/get_coco_dataset.sh
 
-# Clone COCO API
-git clone https://github.com/pdollar/coco
+# Clone COCO API. MHK: This was a mistake, better off forking it and then cloning from my user. 
+##git clone https://github.com/pdollar/coco
 cd coco
 
 mkdir images
 cd images
 
-# Download Images
-wget -c https://pjreddie.com/media/files/train2014.zip
-wget -c https://pjreddie.com/media/files/val2014.zip
+# Download Images  MHK: SO SLLOWWW!!!! I used a download manager instead. 
+##wget -c https://pjreddie.com/media/files/train2014.zip
+##wget -c https://pjreddie.com/media/files/val2014.zip
 
 # Unzip
 unzip -q train2014.zip
@@ -28,5 +28,5 @@ tar xzf labels.tgz
 unzip -q instances_train-val2014.zip
 
 # Set Up Image Lists
-paste <(awk "{print \"$PWD\"}" <5k.part) 5k.part | tr -d '\t' > 5k.txt
+paste <(awk "{print \"$PWD\"}" <5k.part) 5k.part | tr -d '\t' > 5k.txt # MHK: when invoking wsl from cmd, the paths (filenames) in this file would need to be corrected. 
 paste <(awk "{print \"$PWD\"}" <trainvalno5k.part) trainvalno5k.part | tr -d '\t' > trainvalno5k.txt
